@@ -28,7 +28,7 @@ A list of useful commands for the postgres
    WHERE NOT blocked_locks.granted;`
 
 ---------
-
+<pre>
 -- show running queries (pre 9.2)
 SELECT procpid, age(clock_timestamp(), query_start), usename, current_query 
 FROM pg_stat_activity 
@@ -242,3 +242,5 @@ select n_dead_tup, schemaname, relname from pg_stat_all_tables;
 
 -- Total number of dead tuples need to be vacuumed in DB
 select sum(n_dead_tup) from pg_stat_all_tables;
+
+</pre>
