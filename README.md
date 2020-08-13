@@ -3,7 +3,8 @@ A list of useful commands for the postgres
 
 
 #To get blocking SQL statements (these only find row-level locks, not object-level locks).
-`SELECT blocked_locks.pid     AS blocked_pid,
+<code>
+SELECT blocked_locks.pid     AS blocked_pid,
          blocked_activity.usename  AS blocked_user,
          blocking_locks.pid     AS blocking_pid,
          blocking_activity.usename AS blocking_user,
@@ -25,7 +26,8 @@ A list of useful commands for the postgres
         AND blocking_locks.pid != blocked_locks.pid
 
     JOIN pg_catalog.pg_stat_activity blocking_activity ON blocking_activity.pid = blocking_locks.pid
-   WHERE NOT blocked_locks.granted;`
+   WHERE NOT blocked_locks.granted;
+</code>
 
 ---------
 <pre>
